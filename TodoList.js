@@ -20,23 +20,28 @@ function printTodo(newTodo) {
 
 // 삭제 또는 체크
 function todoManage(e) {
+    let isCheck = document.getElementById('checkbox').checked;
     if(e.target.id == 'delete') {
         deleteTodo(e);
     }
     else if(e.target.id == 'label'){
         todoDetail(e);
     }
+    else if(e.target.id=='checkbox') {
+        if(isCheck==true){
+            document.getElementById('label').style.textDecoration="line-through";
+            document.getElementById('label').style.color="grey";
+        }
+        else {
+            document.getElementById('label').style.textDecoration="none";
+            document.getElementById('label').style.color="black";
+        }
+    }
     else{
         alert('외');
     }
 }
 
-function todoDetail(e) {
-    let li = document.querySelector('li');
-    let memo = document.createElement('memo'); 
-    li.appendChild(memo);
-    memo.innerHTML = '<input type="text" id="memo">';
-}
 
 // 삭제
 function deleteTodo(e) {
@@ -54,7 +59,8 @@ function deleteAll(e) {
 
 // 남은 할일
 function leftTodo(e) {
+    let li_Count = getElementByTagName("ul").childElementCount;
     let left = document.getElementById('#checkbox');
     let leftTodo = left.checked;
-    document.getElementById('#left').innerHTML = '<span id="left">{leftTodo}</span>';
+    document.getElementById('#left').innerHTML = '<span id="left">${("input:checkbox[name=checkbox]:checked").length}</span>'; //체크박스 선택된 개수
 }
