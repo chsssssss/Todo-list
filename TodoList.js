@@ -1,9 +1,16 @@
-document.querySelector('form').addEventListener('submit', addTodo);
-document.querySelector('ul').addEventListener('click', todoManage);
-document.querySelector('#deleteAll').addEventListener('click', deleteAll);
-document.querySelector('#checkbox').addEventListener('change', leftTodo);
+let todo = [];
 
-// 추가
+let add = document.querySelector('form');
+let manage = document.querySelector('ul');
+let del = document.querySelector('#deleteAll');
+let left = document.querySelector('#checkbox');
+
+add.addEventListener('submit', addTodo);
+manage.addEventListener('click', todoManage);
+del.addEventListener('click', deleteAll);
+left.addEventListener('change', leftTodo);
+
+// 추가 ,, + 누르면 입력창 생기게..
 function addTodo(e) {
     e.preventDefault();
     let newTodo = document.getElementById('input');
@@ -24,9 +31,7 @@ function todoManage(e) {
     if(e.target.id == 'delete') {
         deleteTodo(e);
     }
-    else if(e.target.id == 'label'){
-        todoDetail(e);
-    }
+
     else if(e.target.id=='checkbox') {
         if(isCheck==true){
             document.getElementById('label').style.textDecoration="line-through";
@@ -62,5 +67,7 @@ function leftTodo(e) {
     let li_Count = getElementByTagName("ul").childElementCount;
     let left = document.getElementById('#checkbox');
     let leftTodo = left.checked;
-    document.getElementById('#left').innerHTML = '<span id="left">${("input:checkbox[name=checkbox]:checked").length}</span>'; //체크박스 선택된 개수
+    document.getElementById('#left').innerHTML = '<span id="left"></span>'; //체크박스 선택된 개수
 }
+
+//${("input:checkbox[name=checkbox]:checked").length}
