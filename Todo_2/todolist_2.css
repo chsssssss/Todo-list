@@ -1,0 +1,23 @@
+header {
+    font-size: 50px;
+    font-weight: 700;
+    margin: auto;
+    text-align: center;
+    width: 600px;
+    background-color: bisque;
+}
+
+main {
+    width: 600px;
+    margin: auto;
+    background-color: rgb(253, 245, 236);
+}
+
+#add {
+    font-size: 30px;
+    font-weight: 700;
+    width: 40px;
+    height: 40px;
+    border: none;
+    float: inline-end;
+}

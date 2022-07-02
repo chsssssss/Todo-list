@@ -1,17 +1,35 @@
 let todo = [];
 
+let append = document.querySelector('form');
 let add = document.querySelector('form');
 let manage = document.querySelector('ul');
 let del = document.querySelector('#deleteAll');
 let left = document.querySelector('#checkbox');
 
+append.addEventListener('submit', appendTodo);
 add.addEventListener('submit', addTodo);
 manage.addEventListener('click', todoManage);
 del.addEventListener('click', deleteAll);
 left.addEventListener('change', leftTodo);
 
 // 추가 ,, + 누르면 입력창 생기게..
-function addTodo(e) {
+function appendTodo(e) {
+    e.preventDefault();
+    let newTodo = document.getElementById('input');
+    printTodo(newTodo.value);
+    newTodo.value = "";
+}
+
+function printTodo(e) {
+    let ul = document.querySelector('ul');
+    let li = document.createElement('li');
+    ul.appendChild(li);
+    li.innerHTML = `<input type="checkbox" id="checkbox"><input type="text" placeholder="새로운 할 일" id="input"><button type="submit" id="delete">X</button>`;
+}
+
+
+// 추가
+/*function addTodo(e) {
     e.preventDefault();
     let newTodo = document.getElementById('input');
     printTodo(newTodo.value);
@@ -23,7 +41,7 @@ function printTodo(newTodo) {
     let li = document.createElement('li');
     ul.appendChild(li);
     li.innerHTML = `<input type="checkbox" id="checkbox"><label id='label'>${newTodo}</label><button type="submit" id="delete">X</button>`;
-}
+}*/
 
 // 삭제 또는 체크
 function todoManage(e) {
