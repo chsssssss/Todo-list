@@ -8,9 +8,11 @@ header {
 }
 
 main {
-    width: 600px;
+    width: 580px;
     margin: auto;
     background-color: rgb(253, 245, 236);
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
 #add {
@@ -20,4 +22,38 @@ main {
     height: 40px;
     border: none;
     float: inline-end;
+}
+
+li {
+    list-style: none;
+    padding: 5px;
+    height: 20px;
+}
+
+ul {
+    margin: auto;
+}
+
+#input {
+    font-size: 17px;
+    border: none;
+    background-color: rgb(253, 245, 236);
+    height: 20px;
+}
+
+#ok {
+    font-size: 15px;
+    background-color: bisque;
+    border: 1px solid black;
+    height: 25px;
+    float: right;
+    margin-right: 30px;
+}
+
+label {
+    background-color: rgb(253, 245, 236);
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 7px;
 }

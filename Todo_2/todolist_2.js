@@ -1,48 +1,67 @@
 let todo = [];
 
-let add = document.querySelector('#add');
+//let add = document.querySelector('#add');
 let manage = document.querySelector('ul');
 let del = document.querySelector('#deleteAll');
-let print = document.querySelector('#add');
+let add = document.querySelector('#add');
+//let append = document.querySelector('#ok');
+let label = document.querySelector('ul');
+label.addEventListener('click',toLabel);
 
 //add.addEventListener('button', addTodo);
 manage.addEventListener('click', todoManage);
 del.addEventListener('click', deleteAll);
-print.addEventListener('button', printTodo);
+add.addEventListener('click', printTodo);
+//append.addEventListener('click', addTodo);
 
+function setTodo(newTodo) {
+    todo = newTodo;
+}
 
+/*
 function addTodo(e) {
     e.preventDefault();
     let newTodo = document.getElementById('input');
-    printTodo(newTodo.value);
+    printTod(newTodo.value);
+    document.querySelector("li").innerHTML = `<input type="checkbox" id="checkbox"><label id='label'>${newTodo}</label><button type="submit" id="delete">X</button>`;
     newTodo.value = "";
-}
+}*/
 
 function printTodo(e) {
     let ul = document.querySelector('ul');
     let li = document.createElement('li');
     ul.appendChild(li);
-    li.innerHTML = `<input type="checkbox" id="checkbox"><input type="text" placeholder="새로운 할 일" id="input"><button type="submit" id="delete">X</button>`;
+    li.innerHTML = `<input type="checkbox" id="checkbox"><input type="text" placeholder="새로운 할 일" id="input"><button type="submit" id="ok">ok</button>`;
+
 }
 
+function toLabel(e) {
+    if(e.target.id=='ok'){
+        let li = e.target.closest('li');
+        let todoInput = document.getElementById('input').value;
+        li.innerHTML = `<input type="checkbox" id="checkbox"><label id='label'>${todoInput}</label><button type="submit" id="delete">X</button>`;
+    }
+
+}
+
+// 삭제 또는 체크
 function todoManage(e) {
-    let isCheck = document.getElementById('checkbox').checked;
+    let isCheck = e.target.checked;
     if(e.target.id == 'delete') {
         deleteTodo(e);
     }
-
     else if(e.target.id=='checkbox') {
         if(isCheck==true){
-            document.getElementById('label').style.textDecoration="line-through";
-            document.getElementById('label').style.color="grey";
+            e.target.closest('li').style.textDecoration="line-through";
+            e.target.closest('li').style.color="grey";
         }
         else {
-            document.getElementById('label').style.textDecoration="none";
-            document.getElementById('label').style.color="black";
+            e.target.closest('li').style.textDecoration="none";
+            e.target.closest('li').style.color="black";
         }
     }
     else{
-        alert('외');
+        //alert('외');
     }
 }
 
