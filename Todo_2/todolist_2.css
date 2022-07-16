@@ -13,6 +13,7 @@ main {
     background-color: rgb(253, 245, 236);
     padding-top: 20px;
     padding-left: 20px;
+    padding-bottom: 20px;
 }
 
 #add {
@@ -22,12 +23,15 @@ main {
     height: 40px;
     border: none;
     float: inline-end;
+    margin-left: 270px;
+    margin-bottom: 30px;
 }
 
 li {
     list-style: none;
     padding: 5px;
     height: 20px;
+    margin-bottom: 15px;
 }
 
 ul {
@@ -48,12 +52,33 @@ ul {
     height: 25px;
     float: right;
     margin-right: 30px;
+    border: none;
+    font-weight: 700;
 }
 
 label {
     background-color: rgb(253, 245, 236);
     margin-top: 15px;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 600;
     margin-left: 7px;
+}
+
+#deleteAll {
+    background-color: bisque;
+    font-size: 17px;
+    border: none;
+    font-weight: 600;
+    float: right;
+    margin-right: 30px;
+}
+
+#delete {
+    background-color: bisque;
+    border: none;
+    float: right;
+    margin-right: 30px;
+    width: 25px;
+    height: 25px;
+    font-weight: 700;
 }
